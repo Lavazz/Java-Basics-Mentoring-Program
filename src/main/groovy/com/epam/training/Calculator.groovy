@@ -1,12 +1,15 @@
 package com.epam.training
 
+import org.slf4j.LoggerFactory
+
 class Calculator {
 
-  private   static final char PLUS = '+'
-    private  static final char MINUS = '-'
+    private static final char PLUS = '+'
+    private static final char MINUS = '-'
     private static final char MULTIPLY = '*'
     private static final char DIVIDE = '/'
 
+    def static log = LoggerFactory.getLogger(Calculator.class)
 
     def static calculate(String expression) {
         def numbers = new LinkedList<>()
@@ -35,6 +38,8 @@ class Calculator {
                 i--
                 numbers.add(number.toBigInteger())
             }
+
+
         }
 
         while (!operations.isEmpty()) {
@@ -42,8 +47,9 @@ class Calculator {
         }
 
         def result = { "Result - [ ${it} ]" }
-        println result(numbers.get(0) ?: '~')
+     //   println result(numbers.get(0) ?: '~')
 
+        log.info("result="+result);
         numbers.get(0)
     }
 
