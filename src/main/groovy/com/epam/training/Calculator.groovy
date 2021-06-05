@@ -33,7 +33,7 @@ class Calculator {
                     number.append(expression.charAt(i++))
                 }
                 i--
-                numbers.add(number.toInteger())
+                numbers.add(number.toBigInteger())
             }
         }
 
@@ -51,7 +51,7 @@ class Calculator {
         return [PLUS, MINUS, MULTIPLY, DIVIDE].contains(operation)
     }
 
-    private static int priority(char operation) {
+    private static BigInteger priority(char operation) {
 
         switch (operation) {
             case PLUS:
